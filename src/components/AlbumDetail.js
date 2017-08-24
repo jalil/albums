@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, {Component} from 'react';
-import {View,Image, Text} from 'react-native';
+import {Linking,View,Image, Text} from 'react-native';
 import Card from './Card';
 import CardItem from './CardItem';
+import Button from './Button';
 
 
 const AlbumDetail = (props) => {
@@ -21,6 +22,12 @@ const AlbumDetail = (props) => {
         <CardItem>
              <Image style={styles.imageStyle}  source={{uri: props.album.image}} />
         </CardItem>
+
+        <CardItem>
+          <Button onPress={() => Linking.openURL(props.album.url)} >
+               Buy Now!
+            </Button>
+          </CardItem>
         </Card>
         );
 };
